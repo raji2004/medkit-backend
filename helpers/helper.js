@@ -1,8 +1,9 @@
+const nodeMail = require("nodemailer")
 exports.randNum = () => {
   return Math.floor(10000 + Math.random() * 90000);
 
 };
-exports.reset = async (email, pin) => {
+exports.Mailer= async (name,num,email) => {
   const transporter = await nodeMail.createTransport({
     host: "smtp.gmail.com",
     port: 465,
@@ -17,7 +18,7 @@ exports.reset = async (email, pin) => {
     to: email,
     subject: `Reset-Password Verification Code`,
     html: `
-    email
+    hello ${name} your pin is ${num}
      `  };
   try {
     await transporter.sendMail(mailOption);
