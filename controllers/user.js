@@ -53,9 +53,9 @@ exports.emailAuth = async (req, res) => {
     const num = randNum()
 
     try {
-        const user = await User.findOne({ email:email.toLowerCase() })
+        const user = await User.findOne({ email:email.toLowerCase()})
         if (user) {
-            await Mailer(fullname, num, email)
+            await Mailer(user.fullname, num, email)
             res.status(200).json({code:num,id:user._id})
         } else {
             res.status(400).json({ message: 'emai is incorrect' })
