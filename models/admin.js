@@ -27,6 +27,9 @@ const adminSchema = mongoose.Schema({
         text:true,
         trim:true
         
+    },
+    transaction:{
+        type:[Object]
     }
 
 });

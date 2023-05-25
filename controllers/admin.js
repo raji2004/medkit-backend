@@ -9,7 +9,20 @@ exports.login = async (req, res) => {
         res.status(400).json({ message: err.message })
     }
 }
-
+exports.orderDrug= async(req,res)=>{
+     const{drugid,adminid,name,type,amount,timeStamp }= req.body
+     try{
+        obj = {
+           name,
+           type,
+           amount,
+           timeStamp,
+        }
+         const order =  await Admin.findByIdAndUpdate({_id:adminid}, { $push: { transaction: obj } })
+     }catch(err){
+         res.status(400).json({message:err.message})
+     }
+}
 
 exports.register = async (req, res) => {
     const { fullname, email, password } = req.body
