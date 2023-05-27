@@ -29,6 +29,9 @@ const userSchema = mongoose.Schema({
     },
     phonenumber:{
         type:String,
+    },
+    dob:{
+        type:String,
     }
 
 });
