@@ -32,6 +32,9 @@ const userSchema = mongoose.Schema({
     },
     dob:{
         type:String,
+    },
+    username:{
+        type:String
     }
 
 });
