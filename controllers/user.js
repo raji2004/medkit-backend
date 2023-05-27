@@ -14,10 +14,10 @@ exports.login = async (req, res) => {
 exports.register = async (req, res) => {
     const { fullname, email, password } = req.body
     try {
-        console.log(email)
+       console.log()
         const check = await User.findOne({ email: email.toLowerCase() })
         if (!check) {
-            const user = new User({ fullname, email, password})
+            const user = new User({ fullname, email:email.toLowerCase() , password})
             await user.save()
             res.send({ user })
         } else {
