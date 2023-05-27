@@ -4,6 +4,7 @@ const mongoose = require("mongoose");
 const userSchema = mongoose.Schema({
     email: {
         type: String,
+        unique:false,
         trim: true,
         text: true
     },
@@ -25,6 +26,9 @@ const userSchema = mongoose.Schema({
         text:true,
         trim:true
         
+    },
+    phonenumber:{
+        type:String,
     }
 
 });
